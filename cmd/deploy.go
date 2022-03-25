@@ -90,11 +90,12 @@ func deploy(cmd *cobra.Command, args []string) {
 
 	options := contracts.DefaultOffChainAggregatorOptions()
 	options.Decimals = 6
+	options.Description = spec.Description
 
 	fmt.Printf("ChainID %d\n", ecl.GetChainID())
 	fmt.Printf("Wallet %s\n", ecl.Wallets[0].Address())
 	fmt.Println(spec.Description)
-	aggregator, err := deployer.DeployOffChainAggregator("0x326C977E6efc84E512bB9C30f76E30c160eD06FB", options)
+	aggregator, err := deployer.DeployOffChainAggregator(spec.LinkToken, options)
 	if err != nil {
 		log.Fatal(err)
 	}

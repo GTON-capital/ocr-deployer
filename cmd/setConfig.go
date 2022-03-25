@@ -114,8 +114,8 @@ func setConfig(cmd *cobra.Command, args []string) {
 
 	//Готовим конфиг
 	offchainConfig := contracts.DefaultOffChainAggregatorConfig(len(spec.Nodes))
-	offchainConfig.DeltaRound = time.Minute * 5
-	offchainConfig.DeltaProgress = time.Minute*5 + time.Second*5
+	offchainConfig.DeltaRound = time.Minute * 15
+	offchainConfig.DeltaProgress = time.Minute * 20
 
 	payees := []common.Address{}
 	for _, node := range spec.Nodes {
