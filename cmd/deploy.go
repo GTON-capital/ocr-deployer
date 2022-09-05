@@ -60,7 +60,10 @@ func init() {
 }
 
 func deploy(cmd *cobra.Command, args []string) {
-	spec, err := models.LoadSpec(args[0])
+
+	log.Printf("Reading config")
+	spec, err := models.LoadSpec(networks_cfg)
+	log.Printf("Read complete")
 	if err != nil {
 		log.Fatal(err)
 	}
